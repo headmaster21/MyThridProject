@@ -1,0 +1,84 @@
+﻿@page
+@model MyThridProject.Pages.CajeroModel
+@{
+}
+<div class="container">
+
+    <form class="well form-horizontal" method="get">
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend>
+                <center>
+                    <h2><b>Cajero Automatico</b></h2>
+                </center>
+            </legend><br>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Banco de Retiro</label>
+                <div class="col-md-4 selectContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                        <select name="banco" class="form-control selectpicker">
+                            <option value="">Seleccione Banco</option>
+                            <option value="ABC">BANCO ABC</option>
+                            <option value="BCA">BANCO BCA</option>
+                            <option value="ACB">BANCO ACB</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text input-->
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Monto Retiro</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input name="monto" placeholder="Monto de Retiro" class="form-control" type="number">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Select Basic -->
+            <!-- Success message -->
+            @if (Model.error)
+            {
+                <div class="alert alert-danger" role="alert"><i class="glyphicon glyphicon-thumbs-down"></i>  @Model.Message</div>
+            }
+
+            @if (!Model.error & Model.Message != "")
+            {
+                <div class="alert alert-success" role="alert"> @Model.Message <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div>
+            }
+
+
+
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-4">
+                    <br>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-warning">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+
+    @if (!Model.error)
+    {
+        <hr />
+        <h1>Despliegue de Retiro</h1>
+        <hr />
+        <h2> Cantitad de 1000: @String.Format("{0:#,##}", @Model.Valor_1000)</h2>
+        <h2> Cantidad de 500 : @String.Format("{0:#,##}", @Model.Valor_500)</h2>
+        <h2> Cantidad de 100 : @String.Format("{0:#,##}", @Model.Valor_100)</h2>
+        <h2> Cantidad de 50  : @String.Format("{0:#,##}", @Model.Valor_50)</h2>
+    }
+
+</div>
+
+
+</div><!-- /.container -->

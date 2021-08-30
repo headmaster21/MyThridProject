@@ -1,0 +1,75 @@
+﻿@page
+@model MyThridProject.Pages.CanculadoraModel
+@{
+}
+
+<div>
+    <div class="container">
+
+        <form class="well form-horizontal" method="get">
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>
+                    <center>
+                        <h2><b>Calculadora de Pestamos</b></h2>
+                    </center>
+                </legend><br>
+
+                <!-- Text input-->
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Monto Prestamo</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-usd"></i></span>
+                            <input name="monto" placeholder="Monto Solicitato" class="form-control" type="number">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text input-->
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Plazo</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-repeat"></i></span>
+                            <input name="plazo" placeholder="Plazo del Prestamo" class="form-control" type="number">
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Text input-->
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Interes Anual</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-usd"></i></span>
+                            <input name="interes" placeholder="Interes Anual" class="form-control" type="number">
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Button -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label"></label>
+                    <div class="col-md-4">
+                        <br>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-warning">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+</div><!-- /.container -->
+</div>
+<hr />
+<h2> Monto Solicitado: @String.Format("{0:#,##0.00}", @Model.Prestamos.Monto)</h2>
+<h2> Plazo (Meses)   : @String.Format("{0:#,##}", @Model.Prestamos.Plazo)</h2>
+<h2> Interes (Anual) : @String.Format("{0:#,##0.00}", @Model.Prestamos.Ineres)</h2>
+<h2> Couta Mensual   : @String.Format("{0:#,##0.00}", @Model.Prestamos.CoutasFijas())</h2>
